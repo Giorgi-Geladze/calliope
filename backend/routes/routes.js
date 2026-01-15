@@ -12,7 +12,7 @@ const checkAdmin = (req, res, next) => {
     if (userPass === ADMIN_PASSWORD) {
         next();
     } else {
-        res.status(401).json({ error: "Giriş Yetkiniz Yok!" });
+        res.status(401).json({ error: "no admin!" });
     }
 };
 
