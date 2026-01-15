@@ -9,13 +9,19 @@ const path = require("path")
 
 const checkAdmin = (req, res, next) => {
     const userPass = req.headers['admin-pass'];
-    console.log("Gelen Şifre:", userPass);
-    console.log("Beklenen Şifre:", ADMIN_KEY);
-    // if (userPass === ADMIN_KEY) {
+    
+    // Render Loglarında bunları görmelisin
+    console.log("KONTROL BAŞLADI");
+    console.log("Gelen Parola:", userPass);
+    console.log("Sistemdeki Parola:", ADMIN_KEY);
+
+    if (userPass && userPass === ADMIN_KEY) {
+        console.log("ŞİFRE DOĞRU - İŞLEM ONAYLANDI");
         next();
-    // } else {
-        // res.status(401).json({ error: "no admin!" });
-    // }
+    } else {
+        console.log("ŞİFRE YANLIŞ VEYA EKSİK!");
+        res.status(401).json({ error: "no admin!" });
+    }
 };
 
 const storage = multer.diskStorage({
