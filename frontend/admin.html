@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .admin-wrap {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 24px;
+    }
+
+    .admin-box {
+      background: rgba(255,255,255,0.04);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.45);
+      margin-bottom: 30px;
+    }
+
+    .admin-box h2 {
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,.2);
+      color: #fff;
+    }
+
+    button {
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-add {
+      background: linear-gradient(145deg,#f8e4c1,#caa986);
+      color: black;
+      width: 100%;
+    }
+
+    .admin-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      gap: 18px;
+    }
+
+    .admin-card {
+      background: rgba(255,255,255,0.03);
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+      position: relative;
+    }
+
+    .admin-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: crimson;
+      color: #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="admin-wrap">
+
+  <!-- ADD PRODUCT -->
+  <div class="admin-box">
+    <h2>პროდუქტის დამატება</h2>
+
+    <input id="name" placeholder="პროდუქტის სახელი">
+    <input id="price" type="number" placeholder="ფასი (GEL)">
+    <input id="oldPrice" type="number" placeholder="ძველი ფასი (არასავალდებულო)">
+
+    <select id="category">
+      <option value="samajuri">სამაჯური</option>
+      <option value="bechdebi">ბეჭდები</option>
+      <option value="gulsakidi">გულსაკიდი</option>
+      <option value="vercqli">ვერცხლი</option>
+      <option value="okro">ოქრო</option>
+      <option value="discount">ფასდაკლება</option>
+    </select>
+
+    <textarea id="description" placeholder="აღწერა"></textarea>
+
+    <input type="file" id="image" accept="image/*">
+    <button class="btn-add" onclick="addProduct()">დამატება</button>
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <div class="admin-box">
+    <h2>პროდუქტების სია</h2>
+    <div id="adminList" class="admin-list"></div>
+  </div>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

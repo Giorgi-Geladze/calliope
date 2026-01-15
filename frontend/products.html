@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Products – Calliope Handmade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- მთავარი სტილი -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- პროდუქტების დამატებითი სტილი -->
+  <link rel="stylesheet" href="products.css">
+</head>
+
+<body>
+
+  <!-- Header (ესეც იგივეა როგორც index-ში) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo" id="site-logo" title="Refresh">
+        <img src="img/logo2.png" class="logo-img" alt="logo">
+        <span class="brand" id="brand-text">CALLIOPE</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div id="nav-links" class="nav-links">
+          <a class="nav-link" href="index.html#home">მთავარი</a>
+          <a class="nav-link" href="products.html">პროდუქცია</a>
+          <a class="nav-link" href="index.html#about">ჩვენს შესახებ</a>
+          <a class="nav-link" href="index.html#contact">კონტაქტი</a>
+
+          <div class="lang-switch" aria-label="Language switcher">
+            <button class="lang-btn active" data-lang="ka" aria-pressed="true">KA</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+
+          <div class="cart-wrap">
+            <button id="open-cart" class="cart-btn" aria-label="Open cart">
+              <img src="img/cart.png" class="cart-icon" alt="cart">
+            </button>
+            <span id="cart-count" class="cart-count">0</span>
+          </div>
+
+          <button id="close-nav" class="close-nav" aria-label="Close navigation">✕</button>
+        </div>
+
+        <button id="burger" class="burger" aria-expanded="false" aria-label="Open menu">
+          <span class="burger-line line1"></span>
+          <span class="burger-line line2"></span>
+          <span class="burger-line line3"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PRODUCTS LAYOUT -->
+  <section class="product-page">
+    <div class="container">
+
+      <!-- Toggle button for sidebar (collapsed state) -->
+      <button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false" title="ფილტრები">›</button>
+
+      <div class="product-layout">
+
+        <!-- SIDEBAR (collapsed/expanded handled by CSS + JS) -->
+        <aside id="filter-sidebar" class="filter-sidebar collapsed" aria-hidden="true">
+          <div class="filter-header">
+            <h3>ფილტრი</h3>
+            <button id="sidebar-close" class="sidebar-close" title="დახურვა">✕</button>
+          </div>
+
+          <!-- BY PRICES -->
+          <div class="filter-section">
+            <h4 class="filter-title">BY PRICES</h4>
+            <div class="price-range-visual">
+              <div class="price-values">
+                <label>ფასი:</label>
+                <span id="price-min-text">20 ₾</span> — <span id="price-max-text">2950 ₾</span>
+              </div>
+              <div class="price-inputs">
+                <input type="number" id="price-min-input" min="0" step="1" />
+                <input type="number" id="price-max-input" min="0" step="1" />
+              </div>
+
+              <!-- Dual slider (two range inputs layered) -->
+              <div class="dual-range">
+                <input type="range" id="range-min" min="20" max="2950" step="1" value="20" />
+                <input type="range" id="range-max" min="20" max="2950" step="1" value="2950" />
+                <div class="range-track"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SORT BY -->
+          <div class="filter-section">
+            <h4 class="filter-title">SORT BY</h4>
+            <select id="sort-select" class="sort-select">
+              <option value="default">ნაგულისხმევი</option>
+              <option value="popularity">პოპულარობით</option>
+              <option value="rating">რეიტინგით</option>
+              <option value="date">სიახლით</option>
+              <option value="price-asc">ფასი: ზრდადობით</option>
+              <option value="price-desc">ფასი: კლებადობით</option>
+            </select>
+          </div>
+
+          <!-- CATEGORIES -->
+          <div class="filter-section">
+            <h4 class="filter-title">CATEGORIES</h4>
+
+            <div class="categories-list">
+              <label class="cat-item"><input type="checkbox" value="uncategorized" /> Uncategorized</label>
+              <label class="cat-item"><input type="checkbox" value="bechdebi" /> ბეჭდები</label>
+              <label class="cat-item"><input type="checkbox" value="gulsakidi" /> გულსაკიდი</label>
+              <label class="cat-item"><input type="checkbox" value="vercqli" /> ვერცხლი</label>
+              <label class="cat-item"><input type="checkbox" value="okro" /> ოქრო</label>
+              <label class="cat-item"><input type="checkbox" value="samajuri" /> სამაჯურები</label>
+              <label class="cat-item"><input type="checkbox" value="tqavi" /> ტყავი</label>
+              <label class="cat-item"><input type="checkbox" value="discount" /> ფასდაკლება</label>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button id="apply-filters" class="btn-apply">ფილტრის მიღება</button>
+            <button id="clear-filters" class="btn-clear">გასუფთავება</button>
+          </div>
+        </aside>
+
+        <!-- PRODUCTS GRID -->
+        <main class="products-wrap">
+          <!-- <h2 class="section-title">პროდუქცია</h2> -->
+
+          <div id="products-grid" class="products-grid">
+
+            <!-- Example product cards: add or remove as needed.
+                 IMPORTANT: each card has data attributes used for filtering/sorting:
+                 data-category (space-separated), data-price, data-oldprice, data-popularity, data-rating, data-date (ISO yyyy-mm-dd)
+            -->
+
+            <div class="shop-card" data-name="სამაჯური A" data-category="samajuri" data-price="29" data-oldprice="39" data-popularity="120" data-rating="4.6" data-date="2025-09-12">
+              <div class="sale-badge"></div>
+              <img src="img/samajuri-removebg-preview.png" alt="სამაჯური A">
+              <h3>სამაჯური A</h3>
+              <div class="price-box">
+                <span class="old-price">39 GEL</span>
+                <span class="new-price">29 GEL</span>
+              </div>
+              <button class="product-add">კალათაში დამატება</button>
+            </div>
+
+            <div class="shop-card" data-name="ოქროს სამაჯური" data-category="okro samajuri" data-price="49" data-oldprice="65" data-popularity="80" data-rating="4.9" data-date="2025-10-01">
+              <div class="sale-badge"></div>
+              <img src="img/samajuri2-removebg-preview.png" alt="ოქროს სამაჯური">
+              <h3>ოქროს სამაჯური</h3>
+              <div class="price-box">
+                <span class="old-price">65 GEL</span>
+                <span class="new-price">49 GEL</span>
+              </div>
+              <button class="product-add">კალათაში დამატება</button>
+            </div>
+
+            <div class="shop-card" data-name="ტყავის ყელსაბამი" data-category="tqavi yelsabami" data-price="59" data-oldprice="79" data-popularity="70" data-rating="4.2" data-date="2025-08-22">
+              <div class="sale-badge"></div>
+              <img src="img/samajuri3-removebg-preview.png" alt="ტყავის ყელსაბამი">
+              <h3>ტყავის ყელსაბამი</h3>
+              <div class="price-box">
+                <span class="old-price">79 GEL</span>
+                <span class="new-price">59 GEL</span>
+              </div>
+              <button class="product-add">კალათაში დამატება</button>
+            </div>
+
+            <div class="shop-card" data-name="ბეჭედი L" data-category="bechdebi" data-price="85" data-oldprice="120" data-popularity="200" data-rating="4.95" data-date="2025-11-02">
+              <div class="sale-badge"></div>
+              <img src="img/bewedi-removebg-preview.png" alt="ბეჭედი L">
+              <h3>ბეჭედი L</h3>
+              <div class="price-box">
+                <span class="old-price">120 GEL</span>
+                <span class="new-price">85 GEL</span>
+              </div>
+              <button class="product-add">კალათაში დამატება</button>
+            </div>
+
+            <div class="shop-card" data-name="გულსაკიდი V" data-category="gulsakidi vercqli" data-price="39" data-oldprice="59" data-popularity="50" data-rating="4.1" data-date="2025-07-18">
+              <div class="sale-badge"></div>
+              <img src="img/bewedi2-removebg-preview.png" alt="გულსაკიდი V">
+              <h3>გულსაკიდი V</h3>
+              <div class="price-box">
+                <span class="old-price">59 GEL</span>
+                <span class="new-price">39 GEL</span>
+              </div>
+              <button class="product-add">კალათაში დამატება</button>
+            </div>
+
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART DRAWER (script.js-ით მართვადი) -->
+  <div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>კალათა</h3>
+      <button id="close-cart" aria-label="Close cart">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <p class="cart-total">ჯამი: <span id="cart-total">0 GEL</span></p>
+      <button id="checkout" class="checkout-btn">გადახდა</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© CALLIOPE - Handmade Jewelry</p>
+  </footer>
+
+  <!-- ძირითადი სკრიპტი (კალათა, ენები და ა.შ.) -->
+  <script src="script.js"></script>
+  <!-- პროდუქტის ლოჯიკა (ფილტრები/სორტირება/dual-slider) -->
+  <script src="products.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Calliope Handmade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <div class="logo" id="site-logo" title="Refresh">
+      <img src="img/logo2.png" class="logo-img" alt="logo">
+      <span class="brand" id="brand-text">CALLIOPE</span>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+
+  <div id="nav-links" class="nav-links">
+    <a class="nav-link" href="#home">მთავარი</a>
+    <a class="nav-link" href="products.html">პროდუქცია</a>
+    <a class="nav-link" href="#about">ჩვენს შესახებ</a>
+    <a class="nav-link" href="#contact">კონტაქტი</a>
+
+    <!-- LANGUAGE SWITCH (desktop: right of cart; mobile: inside burger menu) -->
+    <div class="lang-switch" aria-label="Language switcher">
+      <button class="lang-btn active" data-lang="ka" aria-pressed="true">KA</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+
+    <div class="cart-wrap">
+      <button id="open-cart" class="cart-btn" aria-label="Open cart">
+        <img src="img/cart.png" class="cart-icon" alt="cart">
+      </button>
+      <span id="cart-count" class="cart-count">0</span>
+    </div>
+
+    <button id="close-nav" class="close-nav" aria-label="Close navigation">✕</button>
+  </div>
+
+  <button id="burger" class="burger" aria-expanded="false" aria-label="Open menu">
+    <span class="burger-line line1"></span>
+    <span class="burger-line line2"></span>
+    <span class="burger-line line3"></span>
+  </button>
+</nav>
+
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container">
+    <h1 class="headline fade" id="hero-headline">შექმენი შენი<br>ხელნაკეთი ისტორია</h1>
+    <p class="lead fade">აღმოაჩინე პრემიუმ ხარისხის ხელნაკეთი სამკაულები.</p>
+    <a href="#featured" class="btn fade">მომხმარებელ პროდუქტებს</a>
+  </div>
+</section>
+
+<div class="featured-banner">
+  <img src="img/xelebi2.jpg" alt="Featured Banner">
+</div>
+
+<section id="featured" class="featured">
+  <h2 class="section-title slide">რჩეული კოლექცია</h2>
+
+  <div class="featured-grid">
+
+    <div class="featured-card product" data-name="სამაჯური A" data-price="29">
+      <img src="img/samajuri-removebg-preview.png" alt="Bracelet A">
+      <h3>სამაჯური A</h3>
+      <p class="desc">პრემიუმ ხელნაკეთი სამაჯური.</p>
+      <button class="product-open">კალათაში დამატება</button>
+    </div>
+
+    <div class="featured-card product" data-name="სამაჯური B" data-price="39">
+      <img src="img/samajuri2-removebg-preview.png" alt="Bracelet B">
+      <h3>სამაჯური B</h3>
+      <p class="desc">მინიმალისტური და ელეგანტური დიზაინი.</p>
+      <button class="product-open">კალათაში დამატება</button>
+    </div>
+
+    <div class="featured-card product" data-name="სამაჯური C" data-price="49">
+      <img src="img/samajuri3-removebg-preview.png" alt="Bracelet C">
+      <h3>სამაჯური C</h3>
+      <p class="desc">პრემიუმ ხარისხის ხელნაკეთი სამაჯური.</p>
+      <button class="product-open">კალათაში დამატება</button>
+    </div>
+
+  </div>
+
+  <div class="center-cta">
+    <button id="view-products" class="view-products">ნახე მეტი პროდუქტი</button>
+  </div>
+
+  <div id="extra-products-wrapper" class="extra-wrapper">
+    <div id="extra-products" class="extra-products"></div>
+  </div>
+</section>
+
+<section id="about" class="about-box slide">
+  <div class="about-inner">
+    <div class="about-text">
+      <h2>ჩვენს შესახებ</h2>
+      <p>
+        Calliope — პრემიუმ ხარისხის ხელნაკეთი სამკაულების ბრენდი.  
+        ჩვენი მიზანია შევქმნათ უნიკალური დიზაინი, რომელიც ხაზს გაუსვამს ინდივიდუალობას.
+      </p>
+    </div>
+
+    <div class="about-photo">
+      <img src="img/chemi.png" alt="About Us">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact slide">
+  <div class="container contact-grid">
+
+    <div class="contact-card">
+      <h3>დაგვიკავშირდით</h3>
+      <p> შეკვეთებთან დაკავშირებით მოგვწერეთ. </p>
+      <p><strong>ტელ:</strong> +995 555 123 456</p>
+      <p><strong>Email:</strong> info@calliope.ge</p>
+      <a class="contact-btn" href="mailto:info@calliope.ge">გაგზავნა</a>
+    </div>
+
+    <div class="social-card">
+      <h3>სოციალური ქსელები</h3>
+
+      <div class="contact-icons">
+        <div class="icon-box">
+          <img src="img/instagram.png" alt="instagram">
+          <span>Instagram</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="img/facebook.png" alt="facebook">
+          <span>facebook</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="img/social-media.png" alt="tiktok">
+          <span>TikTok</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-header">
+    <h3>კალათა</h3>
+    <button id="close-cart" aria-label="Close cart">✕</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <p class="cart-total">ჯამი: <span id="cart-total">0 GEL</span></p>
+    <button id="checkout" class="checkout-btn">გადახდა</button>
+  </div>
+</div>
+
+<footer>
+  <p>© CALLIOPE - Handmade Jewelry</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

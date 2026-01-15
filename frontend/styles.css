@@ -1,0 +1,1311 @@
+:root{
+  --bg:#050404;
+  --accent:#caa986;
+  --text:#d8cbbf;
+  --card:#0f0f10;
+  --muted:#bfaea0;
+}
+
+/* basic resets */
+html{scroll-behavior:smooth;}
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+}
+
+.container{
+  width:90%;
+  margin:auto;
+  max-width:1200px;
+}
+
+/* ===========================
+   HEADER — logo left + bottom border
+   =========================== */
+.site-header{
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-right:0; /* moved back left */
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:-100px; /* LOGO TO LEFT EDGE */
+  cursor:pointer;
+}
+
+.logo-img{
+  width:56px;
+}
+
+.brand{
+  letter-spacing:4px;
+  font-weight:600;
+}
+
+/* FIX NAV ALIGNMENT */
+/* BEAUTIFUL NAV TEXT STYLE */
+/* FIX NAV PERFECT ALIGNMENT */
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:40px; /* სივრცე ლოგოს და მენიუს შორის */
+}
+
+/* მენიუს ელემენტების ლამაზი განლაგება */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:34px;  /* HOME / ABOUT / CONTACT შორის ლამაზი დაშორება */
+  position:relative;
+}
+
+/* ლამაზი ტექსტური სტილი */
+.nav-link{
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:1px;
+  text-decoration:none;
+  font-size:15px;
+  padding-bottom:2px;
+  transition:0.25s ease;
+}
+
+.nav-link:hover{
+  color:#e8d5c0;
+  transform:translateY(-2px);
+}
+
+/* CART-ის გასწორება HOME/ABOUT/CONTACT-ის დონეზე */
+.cart-wrap{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  position:relative;
+  margin-top:-4px; /* 👉 CART icon აღარ წავა დაბლა */
+}
+
+.cart-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  margin:0;
+}
+
+.cart-icon{
+  width:24px;
+  height:24px;
+  transform:none; /* 👉 remove translateY(-4px) — ქვემოთ წაიყვანდა */
+}
+
+
+
+/* ===========================
+   CART BADGE — improved & repositioned
+   =========================== */
+.cart-btn{
+  background:none;
+  border:none;
+  cursor:pointer;
+  margin-top:8px; /* slightly raised so cart icon sits a bit higher */
+  display:inline-flex;
+  align-items:center;
+  position:relative;
+  padding:6px;
+}
+
+.cart-icon{
+  width:26px;
+  height:26px;
+  display:block;
+  transform:translateY(-4px); /* nudge up to better align with nav text */
+}
+
+/* small badge style */
+.cart-count{
+  position: absolute;
+  top:2px;
+  right:2px;
+  background:var(--accent);
+  color:black;
+  font-weight:800;
+  font-size:12px;
+  padding:4px 6px;
+  border-radius:12px;
+  display:none;
+}
+
+/* ===========================
+   HERO
+   =========================== */
+.hero{
+  padding:170px 0 120px;
+  text-align:left;
+}
+
+.headline{
+  font-family:'Playfair Display';
+  font-size:56px;
+  cursor:pointer;
+}
+
+.lead{
+  max-width:640px;
+  color:var(--muted);
+  margin-top:12px;
+}
+
+.hero .btn{
+  margin-top:40px;
+  padding:12px 28px;
+  background:var(--accent);
+  color:black;
+  border-radius:28px;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-block;
+}
+
+/* ===========================
+   FEATURED — UPDATED PREMIUM
+   (replaces earlier .featured card styles)
+   =========================== */
+
+.featured{
+  padding: 100px 0 40px;
+  text-align: center;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  margin-bottom:40px;
+}
+
+.section-title{
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  color: var(--accent);
+  position: relative;
+}
+
+.section-title::after{
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 6px;
+}
+
+/* grid layout for featured */
+.featured-grid{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* card */
+.featured-card{
+  width: 290px;
+  padding: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: .3s ease;
+}
+
+.featured-card:hover{
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.07);
+}
+
+.featured-card img{
+  width: 100%;
+  height: 230px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 16px;
+  transition: transform .45s ease, box-shadow .45s ease;
+}
+
+.featured-card img:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.65);
+}
+
+.featured-card h3{
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.featured-card .desc{
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.featured-card button{
+  padding: 10px 24px;
+  border: 1px solid var(--accent);
+  border-radius: 26px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.featured-card button:hover{
+  background: var(--accent);
+  color: black;
+}
+
+/* original .products/.product are preserved for compatibility with extra-products dropdown */
+.products{
+  display:flex;
+  justify-content:center;
+  gap:36px;
+  flex-wrap:wrap;
+}
+
+.product{
+  width:280px;
+  text-align:center;
+  background:transparent;
+  padding:18px;
+  transition:transform .35s ease;
+}
+
+.product:hover{
+  transform:translateY(-8px);
+}
+
+.product img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.6);
+  transition:.5s;
+}
+
+.product img:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 36px rgba(0,0,0,0.7);
+}
+
+.product h3{
+  margin:12px 0 6px;
+  font-size:16px;
+}
+
+.product-open{
+  margin-top:8px;
+  padding:10px 24px;
+  border-radius:25px;
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  cursor:pointer;
+  transition:.25s;
+  font-weight:700;
+}
+
+.product-open:hover{
+  background:var(--accent);
+  color:black;
+  transform:translateY(-3px);
+}
+
+/* ===========================
+   VIEW FULL PRODUCTS (DROPDOWN)
+   =========================== */
+.center-cta{
+  margin-top:30px;
+}
+
+.view-products{
+  padding:12px 30px;
+  border-radius:30px;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  cursor:pointer;
+  font-weight:700;
+}
+
+.extra-wrapper{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .6s ease;
+}
+
+.extra-wrapper.open{
+  max-height:900px;
+}
+
+.extra-products{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:32px;
+}
+
+.extra-products .product{
+  width:260px;
+}
+
+/* ===========================
+   FLOATING IMAGES
+   =========================== */
+.about-floating{
+  position:relative;
+  width:100%;
+  height:360px;
+  margin-top:80px;
+  pointer-events:none;
+}
+
+.float-img{
+  width:340px;
+  border-radius:18px;
+  opacity:0;
+  transform:translateY(120px) scale(.98) translateX(0);
+  transition:opacity 900ms cubic-bezier(.2,.9,.2,1), transform 900ms cubic-bezier(.2,.9,.2,1);
+  position:absolute;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.float-left{
+  left:6%;
+  top:40px;
+}
+
+.float-right{
+  right:6%;
+  top:120px;
+}
+
+.float-img.show{
+  opacity:1;
+  transform:translateY(0) scale(1) translateX(0);
+}
+
+/* responsive for floats */
+@media (max-width:1100px){
+  .about-floating{height:300px;}
+  .float-img{width:300px;}
+}
+
+@media (max-width:900px){
+  .contact-grid{grid-template-columns:1fr;}
+
+  .about-floating{height:260px;}
+  .float-img{width:260px;}
+  .headline{font-size:40px;}
+}
+
+@media (max-width:520px){
+  .about-floating{display:none;}
+}
+
+/* ===========================
+   ABOUT — UPDATED LUXURY BOX
+   (new .about-box while keeping original .about for fallback)
+   =========================== */
+
+.about-box{
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.about-inner{
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  background: rgba(255,255,255,0.03);
+  border-radius: 26px;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text h2{
+  color: var(--accent);
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.about-text p{
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.about-photo img{
+  width: 360px;
+  height: 360px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* keep original .about rules as fallback (slightly adjusted) */
+.about{
+  padding:80px 12% 60px;
+  text-align:center;
+  color:var(--muted);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  margin-bottom:40px;
+}
+
+/* responsive for about */
+@media(max-width:900px){
+  .about-inner{
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-photo img{
+    width: 100%;
+    height: auto;
+  }
+
+  /* ensure featured grid stacks */
+  .featured-grid{
+    gap: 22px;
+  }
+}
+
+/* ===========================
+   CONTACT
+   =========================== */
+.contact{
+  padding:60px 0 120px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  margin-bottom:40px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+
+.contact-card,
+.social-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+  border-radius:18px;
+  padding:22px;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow:0 14px 40px rgba(0,0,0,0.6);
+}
+
+.contact-card h3,
+.social-card h3{
+  color:var(--accent);
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+
+.contact-card p{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.contact-btn{
+  display:inline-block;
+  margin-top:60px;
+  padding:10px 18px;
+  border-radius:18px;
+  background:var(--accent);
+  color:black;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* SOCIAL ICONS */
+.contact-icons{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin-top:12px;
+}
+
+.icon-box{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px 14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:14px;
+  transition:.25s;
+  text-decoration:none;
+}
+
+.icon-box:hover{
+  background:rgba(255,255,255,0.07);
+  transform:translateY(-3px);
+}
+
+.icon-box img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.icon-box span{
+  color:var(--text);
+  font-size:15px;
+  font-weight:600;
+}
+
+/* ===========================
+   CART DRAWER (desktop default: right)
+   =========================== */
+.cart-drawer{
+  position:fixed;
+  right:-380px;
+  top:0;
+  width:360px;
+  height:100%;
+  background:#0d0d0d;
+  transition: right .4s ease, bottom .35s ease;
+  padding:18px;
+  box-shadow:-8px 0 35px rgba(0,0,0,.7);
+  z-index:10000; /* 🔥 ახლა ჰედერზე მაღლაა */
+}
+
+
+.cart-drawer.active{
+  right:0;
+}
+
+/* header and items same as before */
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+#cart-items{
+  max-height:62vh;
+  overflow:auto;
+  padding-right:6px;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #222;
+}
+
+.cart-item img{
+  width:72px;
+  height:72px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.cart-item .meta{
+  flex:1;
+}
+
+.cart-item .meta p{
+  margin-bottom:6px;
+  color:var(--muted);
+}
+
+.cart-item .meta .price{
+  font-weight:700;
+}
+
+.cart-item .actions{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.remove-item{
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  font-weight:700;
+}
+
+.buy-now{
+  padding:8px 12px;
+  border-radius:14px;
+  background:var(--accent);
+  color:black;
+  font-weight:700;
+  border:none;
+}
+
+.cart-footer{
+  margin-top:14px;
+  border-top:1px solid #222;
+  padding-top:12px;
+}
+
+.checkout-btn{
+  padding:12px;
+  border-radius:20px;
+  background:var(--accent);
+  border:none;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* ===========================
+   FLY-TO-CART TRANSITION (helper styles for the flying clone)
+   =========================== */
+.flying-image {
+  position:fixed;
+  z-index:1500;
+  pointer-events:none;
+  transition:transform 650ms cubic-bezier(.2,.9,.2,1), opacity 650ms cubic-bezier(.2,.9,.2,1);
+  will-change:transform, opacity;
+  border-radius:12px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.5);
+}
+
+/* ===========================
+   CLOSE NAV BUTTON (mobile overlay)
+   =========================== */
+.close-nav{
+  display:none;
+  position:absolute;
+  top:18px;
+  right:18px;
+  background:transparent;
+  color:var(--text);
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  z-index:1100;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer{
+  padding:50px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+.fade{animation:fadeUp 1.2s ease;}
+.slide{animation:slideUp 1s ease;}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+/* ===========================
+   BURGER MENU (MOBILE)
+   =========================== */
+.burger{
+  display:none;
+  width:40px;
+  height:32px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:0;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+}
+
+.burger-line{
+  width:26px;
+  height:3px;
+  background:var(--text);
+  transition:.3s;
+  border-radius:3px;
+}
+
+/* when opened - X animation */
+.burger.open .line1{
+  transform:rotate(45deg) translate(6px,6px);
+}
+.burger.open .line2{
+  opacity:0;
+}
+.burger.open .line3{
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* ===========================
+   MOBILE NAV OVERLAY
+   =========================== */
+.nav-links.mobile{
+  display:flex !important;
+  flex-direction:column;
+  position:fixed;
+  top:0;
+  right:0;
+  height:100vh;
+  width:80%;
+  max-width:340px;
+  padding:40px 22px;
+  background:#0c0c0c;
+  box-shadow:-14px 0 40px rgba(0,0,0,0.7);
+  transform:translateX(110%);
+  transition:.35s ease;
+  z-index:999;
+}
+
+.nav-links.mobile.open{
+  transform:translateX(0);
+}
+
+.nav-links.mobile .nav-link{
+  font-size:20px;
+  padding:14px 0;
+  width:100%;
+  display:block;
+}
+
+.nav-links.mobile #open-cart{
+  margin-top:auto;
+}
+
+/* show the close-nav X in mobile overlay */
+.nav-links.mobile .close-nav{
+  display:block;
+}
+
+/* ===========================
+   CART ON MOBILE — slide up from bottom
+   =========================== */
+@media(max-width:900px){
+  .burger{ display:flex; }
+  .nav-links{
+    display:none;
+  }
+  .logo{
+    margin-left:0; /* შენი MINUS მარცხენა offset გაუქმება */
+  }
+
+  /* make cart full-width panel from bottom */
+  .cart-drawer{
+    left:0;
+    right:0;
+    bottom:-100%;
+    top:auto;
+    width:100%;
+    height:auto;
+    max-height:70vh;
+    border-top-left-radius:18px;
+    border-top-right-radius:18px;
+    box-shadow:0 -18px 40px rgba(0,0,0,0.6);
+    transition: bottom .45s cubic-bezier(.2,.9,.2,1);
+  }
+
+  .cart-drawer.active{
+    bottom:0;
+  }
+
+  /* make internal padding comfortable on mobile */
+  .cart-drawer .cart-header{ padding-right:8px; }
+  #cart-items{ max-height:50vh; }
+
+  /* ensure cart open button inside mobile overlay is placed nicely */
+  .nav-links.mobile #open-cart{ margin-top:0; margin-bottom:12px; }
+}
+/* CART — floating button when mobile menu is open */
+.cart-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--accent);
+  padding: 14px;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+  z-index: 2000;
+  animation: popIn .35s ease;
+}
+
+.cart-floating img {
+  width: 26px;
+  height: 26px;
+  filter: brightness(0);
+}
+
+/* small pop animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ===========================
+   UPDATED FLOATING CART (mobile) + pulse
+   =========================== */
+.cart-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 64px;
+  height: 64px;
+  display: none;            /* shown only when cartCount>0 or showFloatingCart() called */
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
+  padding: 6px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+  z-index: 2000;
+  cursor: pointer;
+  transition: transform .18s ease;
+}
+
+/* product preview image inside the floating circle */
+.cart-floating .floating-img{
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  display:block;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+/* count badge on floating */
+.cart-floating .floating-count{
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--accent);
+  color: black;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 5px 7px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* pulse animation — used when an item is added */
+.cart-floating.pulse {
+  animation: pulse 700ms cubic-bezier(.2,.9,.2,1);
+}
+
+@keyframes pulse{
+  0% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* small touch feedback */
+.cart-floating:active { transform: scale(.98); }
+
+/* ensure the floating cart sits above mobile nav overlay */
+.nav-links.mobile.open ~ .cart-floating { z-index: 2100; }
+
+/* ===========================
+   DESKTOP: make cart icon more presentable (uses same image file)
+   =========================== */
+@media(min-width: 901px){
+  /* make the nav cart-icon slightly larger and framed */
+  .cart-icon{
+    width: 34px;
+    height: 34px;
+    display:block;
+    border-radius:10px;
+    padding:6px;
+    /* background: linear-gradient(180deg, rgba(202,169,134,0.95), rgba(202,169,134,0.9)); */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    filter: none;
+    object-fit:contain;
+  }
+
+  .cart-wrap{ margin-top:0; }
+
+  .cart-count{
+    top: -8px;
+    right: -8px;
+    padding:5px 8px;
+  }
+}
+
+/* keep mobile drawer behavior (already present in your file) */
+@media(max-width:900px){
+  .cart-floating { right: 16px; bottom: 18px; width:64px; height:64px; }
+}
+.featured-banner {
+  width: 830px;
+  height: 240px;
+  margin: 0 auto 50px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ფოტო desktop-ზე სრულად ივსება */
+.featured-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .featured-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+
+    /* ⭐ აქ ემატება დისტანცია ყველა მხრიდან */
+    padding: 10px;      
+    box-sizing: border-box;
+  }
+
+  .featured-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px; /* ფოტო კიდეებსაც ლამაზად უხდება */
+  }
+}
+
+
+ /* ✅ კალათის დამალვა მხოლოდ ბურგერ მენიუში (მობილურზე) */
+.nav-links.mobile .cart-wrap {
+  display: none !important;
+}
+/* ✅ MOBILE FLOATING CART – PREMIUM VERSION */
+@media(max-width:900px){
+  .cart-floating{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background: linear-gradient(145deg, #ffe7c7, #caa986);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  }
+
+  .cart-floating .floating-img{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    object-fit:cover;
+  }
+
+  .cart-floating .floating-count{
+    top:-8px;
+    right:-8px;
+    font-size:13px;
+    padding:6px 9px;
+    font-weight:900;
+  }
+}
+/* ✅ CART ITEM – BEAUTIFIED */
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.cart-item img{
+  width:70px;
+  height:70px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+.cart-item .actions{
+  margin-left:auto;
+}
+
+.remove-item{
+  background:#ff4d4d;
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:6px 10px;
+  cursor:pointer;
+  font-weight:700;
+  transition:.2s;
+}
+
+.remove-item:hover{
+  transform:scale(1.1);
+  background:#ff1f1f;
+}
+/* ===========================
+   ✅ PREMIUM FLOATING CART (MOBILE)
+   =========================== */
+@media(max-width:900px){
+  .cart-floating{
+    width:74px;
+    height:74px;
+    border-radius:50%;
+    background: linear-gradient(145deg, #ffe8c8, #caa986);
+    box-shadow: 
+      0 14px 40px rgba(0,0,0,0.5),
+      inset 0 2px 6px rgba(255,255,255,0.6);
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .cart-floating .floating-img{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+    object-fit:cover;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  }
+
+  .cart-floating .floating-count{
+    top:-9px;
+    right:-9px;
+    font-size:13px;
+    padding:6px 10px;
+    font-weight:900;
+    border-radius:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);
+  }
+}
+/* ===========================
+   ✅ CART PRODUCT – LUXURY LOOK
+   =========================== */
+.cart-item{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.05));
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+
+.cart-item img{
+  width:78px;
+  height:78px;
+  border-radius:14px;
+  object-fit:cover;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);
+}
+
+.cart-item .meta p{
+  font-weight:600;
+  letter-spacing:.5px;
+}
+
+.cart-item .price{
+  color:#e6c29f;
+}
+
+/* ❌ REMOVE BUTTON PREMIUM */
+.remove-item{
+  background: linear-gradient(145deg, #ff5c5c, #c80000);
+  border:none;
+  border-radius:12px;
+  padding:6px 11px;
+  color:white;
+  font-weight:800;
+  box-shadow:0 6px 18px rgba(0,0,0,0.4);
+}
+
+.remove-item:hover{
+  transform:scale(1.1);
+  background: linear-gradient(145deg, #ff1f1f, #900000);
+}
+/* ===========================
+   PERFECT MOBILE ROUND CART BUTTON
+   =========================== */
+@media(max-width:900px){
+  .cart-floating{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff4dd, #d1a679);
+    border: 2px solid rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.55),
+      inset 0 3px 10px rgba(255,255,255,0.7);
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  /* CART ICON IN CENTER */
+  .cart-floating .floating-img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: brightness(0) saturate(100%);
+  }
+
+  /* CART COUNT BADGE */
+  .cart-floating .floating-count{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: linear-gradient(145deg, #ff4d4d, #b80000);
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+}
+/* ===========================
+   STICKY HEADER (desktop + mobile)
+   =========================== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  background: rgba(5,4,4,0.88); /* თანხმოვანი ნახევრად გამჭვირვალე ფონი */
+  backdrop-filter: blur(6px);    /* მსუბუქი ბლური უკან მდგომი კონტენტისათვის */
+  -webkit-backdrop-filter: blur(6px);
+  transition: padding .22s ease, box-shadow .22s ease, background .22s ease;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+}
+
+/* ძირითადი paddings რომ არ ამჩნევდეს layout shift */
+.site-header .header-inner{
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* აჩხრაკვლისას — ჰედერის წონასწორი კომპაქტური ვერსია */
+.site-header.scrolled{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.55);
+  background: rgba(5,4,4,0.95);
+}
+
+/* ლოგო-იმიჯის ზომის მსუბუქი გარდაქმნა სკროლის დროს */
+.site-header.scrolled .logo-img{
+  width:44px; /* არსებული 56px-ზე მცირე */
+  transition: width .22s ease;
+}
+/* FIX: Prevent horizontal scroll on resize */
+@media(min-width:900px){
+  body {
+    overflow: auto !important;
+  }
+
+  .nav-links {
+    transform: none !important;
+  }
+
+  .nav-links.mobile {
+    position: static !important;
+    height: auto !important;
+    width: auto !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+/* ===========================
+   LANGUAGE SWITCH (KA / EN)
+   =========================== */
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left: 10px;
+  padding: 4px 6px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(8px);
+}
+
+.lang-btn{
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: .5px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.lang-btn:hover{
+  background: rgba(255,255,255,.12);
+}
+
+.lang-btn.active{
+  background: var(--accent);
+  color: #000;
+}
+
+.lang-sep{
+  color: rgba(255,255,255,.55);
+  font-weight: 700;
+}
+
+/* MOBILE: put switch nicely inside burger menu (top-ish) */
+@media (max-width: 900px){
+  .nav-links.mobile{
+    gap: 0;
+  }
+
+  .nav-links.mobile .lang-switch{
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0 0 18px 0;
+    padding: 6px 8px;
+  }
+}
