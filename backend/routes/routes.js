@@ -9,6 +9,8 @@ const path = require("path")
 
 const checkAdmin = (req, res, next) => {
     const userPass = req.headers['admin-pass'];
+    console.log("Gelen Şifre:", userPass);
+    console.log("Beklenen Şifre:", ADMIN_KEY);
     if (userPass === ADMIN_KEY) {
         next();
     } else {
