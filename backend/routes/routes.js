@@ -1,7 +1,7 @@
 const controllers = require("../controllers/calliopeControllers")
 const express = require("express")
 const router = express.Router()
-const ADMIN_PASSWORD = process.env.ADMIN_KEY
+const ADMIN_KEY = process.env.ADMIN_PASSWORD
 // ! multer
 const multer = require('multer');
 const path = require("path")
@@ -9,7 +9,7 @@ const path = require("path")
 
 const checkAdmin = (req, res, next) => {
     const userPass = req.headers['admin-pass'];
-    if (userPass === ADMIN_PASSWORD) {
+    if (userPass === ADMIN_KEY) {
         next();
     } else {
         res.status(401).json({ error: "no admin!" });
