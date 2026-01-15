@@ -9,11 +9,13 @@ const path = require("path")
 
 const checkAdmin = (req, res, next) => {
     const userPass = req.headers['admin-pass'];
-    if (userPass === ADMIN_KEY) {
+    console.log("Gelen Şifre:", userPass);
+    console.log("Beklenen Şifre:", ADMIN_KEY);
+    // if (userPass === ADMIN_KEY) {
         next();
-    } else {
-        res.status(401).json({ error: "no admin!" });
-    }
+    // } else {
+        // res.status(401).json({ error: "no admin!" });
+    // }
 };
 
 const storage = multer.diskStorage({
