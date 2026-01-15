@@ -49,7 +49,7 @@ async function addProduct() {
             renderAdminProducts();
         } else {
             const errorData = await response.json();
-            alert("Hata: " + errorData.error);
+            alert("Error: " + errorData.error);
         }
     } catch (error) {
         console.error("sending error:", error);
