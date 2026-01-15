@@ -4,11 +4,16 @@ const BASE_URL = window.location.hostname === "localhost" || window.location.hos
 
 const API_URL = `${BASE_URL}/calliope`;
 
+
 window.onload = () => {
     renderAdminProducts();
 };
 
 async function addProduct() {
+    if (!confirm("დაემატოს?")) return
+    const password = prompt("enter the pass:");
+    if (!password) return;
+
     const nameInput = document.getElementById("name");
     const priceInput = document.getElementById("price");
     const oldPriceInput = document.getElementById("oldPrice");
@@ -30,7 +35,10 @@ async function addProduct() {
     try {
         const response = await fetch(`${API_URL}/`, {
             method: 'POST',
-            body: formData 
+            headers: {
+                'admin-pass': password
+            },
+            body: formData
         });
 
         if (response.ok) {
@@ -74,11 +82,16 @@ async function renderAdminProducts() {
 }
 
 async function deleteProduct(id) {
-  if (!confirm("წაიშალოს?")) return
+if (!confirm("წაიშალოს?")) return
+const password = prompt("enter the pass:");
+if (!password) return;
 
   try {
     const response = await fetch(`${API_URL}/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+        headers: {
+            'admin-pass': password
+        }
     });
 
     if (response.ok){
