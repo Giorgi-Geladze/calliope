@@ -26,7 +26,12 @@ const storage = multer.diskStorage({
 //     origin: ["http://127.0.0.1:5500", "http://localhost:5500"]
 // }))
 
-app.use(cors());
+app.use(cors({
+    origin: "*", // Şimdilik her yerden gelen isteğe izin ver
+    methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"], // Kullanılan tüm metodlar
+    allowedHeaders: ["Content-Type", "admin-pass"] // Backend'in 'admin-pass' başlığını kabul etmesini sağlar
+}));
+// app.use(cors());
 
 
 
