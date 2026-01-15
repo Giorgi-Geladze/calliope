@@ -345,7 +345,7 @@ async function loadProductsFromBackend() {
 
         const response = await fetch(`${API_URL}/`);
         const result = await response.json();
-        const products = await result.data
+        const products = result.data
         
         products.forEach(p => {
             const card = document.createElement("div");
