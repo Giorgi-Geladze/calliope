@@ -56,37 +56,37 @@ async function getAll(req, res) {
 
 async function deleteProduct(req, res) {
     try {
-        const data = await req.params.id;
-        const product = await calliopeSchema.findById(data)
-        const imagePath = path.join(__dirname, "../../frontend/img/", product.imageURL)
-        const response = await calliopeSchema.findByIdAndDelete(data)
-        if (product.imageURL){
-            fs.unlink(imagePath, (err)=>{
-                if (err) {
-                    console.log("not deleted:", err);
-                } else {
-                    console.log("deleted");
-                }
-            })
+        const id = req.params.id;
+        const product = await calliopeSchema.findById(id);
+
+        if (!product) {
+            return res.status(404).json({ message: "product not found" });
         }
 
-        if (!response) {
-            return res.status(404).json({ message: "Product not found" });
+        const response = await calliopeSchema.findByIdAndDelete(id);
+
+        if (product.imageURL) {
+            const imagePath = path.join(__dirname, "../public/img/", product.imageURL);
+            
+            if (fs.existsSync(imagePath)) {
+                fs.unlink(imagePath, (err) => {
+                    if (err) console.log("doesn't deleted:", err);
+                    else console.log("has been deleted");
+                });
+            } else {
+                console.log("these is no data, just deleted from db.");
+            }
         }
 
-        res.status(204).json({
-            message: "data is succesfuly deleted",
+        res.status(200).json({ 
+            message: "img is deleted",
             data: response
-        })
+        });
 
     } catch (error) {
-        console.log(error);
-    
-        res.status(500).json({
-            message: "failed deleting data"
-        })
+        console.log("deleting error:", error);
+        res.status(500).json({ message: "server error on deleting" });
     }
 }
-
 
 module.exports = {addProduct, getAll, deleteProduct}
