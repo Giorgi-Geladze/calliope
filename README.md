@@ -29,7 +29,7 @@ CORS Configuration: Optimized for cross-origin requests between different deploy
 
 Automated Uptime: Integrated keep-alive mechanisms to prevent server sleep cycles.
 
-Challenges & Solutions
+### Challenges & Solutions
 CORS Management: Successfully configured backend headers to allow secure communication between separate frontend and backend deployments.
 
 Environment Security: Utilized .env files and environment variables on Render to keep sensitive data like MongoDB URIs and passwords secure.
