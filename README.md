@@ -1,11 +1,11 @@
-Calliope - Full Stack Product Management System
+## Calliope - Full Stack Product Management System
 A robust Full Stack web application designed to manage products dynamically through a secure administrative interface. This project showcases the integration of a modern backend with a clean frontend.
 
-Live Demo
+### Live Demo
 Frontend: [LINK_BURAYA]
 Backend API: [LINK_BURAYA]
 
-Tech Stack
+### Tech Stack
 Frontend: Vanilla JavaScript, CSS3, HTML5
 
 Backend: Node.js, Express.js
@@ -16,7 +16,7 @@ File Management: Multer (for image uploads)
 
 Deployment: Render (Web Services & Static Sites)
 
-Key Features
+### Key Features
 Secure Admin Dashboard: A protected area to manage content with custom header-based authentication.
 
 Full CRUD Functionality: Create, Read, Update, and Delete products in real-time.
