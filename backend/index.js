@@ -41,7 +41,12 @@ app.use(cors({
 app.use(express.json())
 // app.use("/img", express.static(path.join(__dirname, "../frontend/img/")));
 app.use("/img", express.static(path.join(__dirname, "public/img")));
+app.use(express.static(path.join(__dirname, "../frontend")));
 app.use("/calliope", calliopeRoutes)
+
+app.get(/^(?!\/calliope|\/img).*$/, (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "index.html"));
+});
 
 app.listen(port, ()=>{
     console.log(`server is running on ${port}`);
