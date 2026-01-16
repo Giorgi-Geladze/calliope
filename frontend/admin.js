@@ -24,7 +24,7 @@ async function addProduct() {
     const file = imageInput.files[0];
     if (!file) return alert("აირჩიე ფოტო");
 
-    const formData = new FormData();
+    const formData = new FormData(); 
     formData.append("name", nameInput.value);
     formData.append("price", priceInput.value);
     formData.append("oldPrice", oldPriceInput.value);

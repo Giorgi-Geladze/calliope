@@ -25,17 +25,18 @@ const storage = multer.diskStorage({
 // app.use(cors({
 //     origin: ["http://127.0.0.1:5500", "http://localhost:5500"]
 // }))
+mongoDB()
 
 app.use(cors({
     origin: "*", // Şimdilik her yerden gelen isteğe izin ver
     methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"], // Kullanılan tüm metodlar
-    allowedHeaders: ["Content-Type", "admin-pass"] // Backend'in 'admin-pass' başlığını kabul etmesini sağlar
+    allowedHeaders: ["Content-Type", "admin-pass"], // Backend'in 'admin-pass' başlığını kabul etmesini sağlar
+    credentials: true
 }));
 // app.use(cors());
 
 
 
-mongoDB()
 
 app.use(express.json())
 // app.use("/img", express.static(path.join(__dirname, "../frontend/img/")));

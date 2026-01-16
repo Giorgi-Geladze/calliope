@@ -10,16 +10,10 @@ const path = require("path")
 const checkAdmin = (req, res, next) => {
     const userPass = req.headers['admin-pass'];
     
-    // Render Loglarında bunları görmelisin
-    console.log("KONTROL BAŞLADI");
-    console.log("Gelen Parola:", userPass);
-    console.log("Sistemdeki Parola:", ADMIN_KEY);
-
-    if (userPass && userPass === ADMIN_KEY) {
-        console.log("ŞİFRE DOĞRU - İŞLEM ONAYLANDI");
+    if (userPass === ADMIN_KEY && ADMIN_KEY !== undefined) {
         next();
     } else {
-        console.log("ŞİFRE YANLIŞ VEYA EKSİK!");
+        console.log("pass is not correct!");
         res.status(401).json({ error: "no admin!" });
     }
 };
