@@ -2,8 +2,8 @@
 A robust Full Stack web application designed to manage products dynamically through a secure administrative interface. This project showcases the integration of a modern backend with a clean frontend.
 
 ### Live Demo
-Frontend: [LINK_BURAYA]
-Backend API: [LINK_BURAYA]
+Frontend: https://calliope-frontend.onrender.com/
+Backend API: https://calliope-backend.onrender.com/
 
 ### Tech Stack
 - Frontend: Vanilla JavaScript, CSS3, HTML5
