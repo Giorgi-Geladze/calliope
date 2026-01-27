@@ -337,3 +337,132 @@
     gap: 18px;
   }
 }
+
+/* ===== GLOBAL MOBILE FIX ===== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* CONTAINER არ გაცდეს ეკრანს */
+.container {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* PRODUCTS GRID – responsive ყველა ტელეფონზე */
+.products-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* CARD აღარ იყოს ფიქსირებული სიგანე */
+.shop-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* SIDEBAR მობილურზე */
+@media (max-width: 768px) {
+  .filter-sidebar {
+    width: 85vw;
+    max-width: 320px;
+  }
+
+  .sidebar-toggle {
+    left: 8px;
+    top: auto;
+    bottom: 20px;
+  }
+}
+
+/* პატარა ტელეფონები */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .shop-card img {
+    height: 180px;
+  }
+}
+
+/* ძალიან პატარა ეკრანები (ძველი Android / iPhone SE) */
+@media (max-width: 360px) {
+  .products-grid {
+    gap: 12px;
+  }
+
+  .shop-card {
+    padding: 14px;
+  }
+}
+
+/* FIX LOGO POSITION */
+.site-header .logo {
+  margin-left: 0;
+}
+
+/* თუ ადრე ცენტრში ან მარჯვნივ იყო */
+.site-header .header-inner {
+  justify-content: space-between;
+}
+
+/* ლოგოს ზუსტი კონტროლი */
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+/* ADD TO CART BUTTON */
+.product-add {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: none;
+
+  background: linear-gradient(145deg, #f8e4c1, #caa986);
+  color: #000;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+/* hover */
+.product-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.45);
+  background: linear-gradient(145deg, #ffeccc, #d8b38f);
+}
+
+/* click */
+.product-add:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+/* focus (accessibility) */
+.product-add:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(202,169,134,0.45);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .product-add {
+    font-size: 13px;
+    padding: 11px;
+  }
+}

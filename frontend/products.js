@@ -276,24 +276,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------- Language Support for Products Page ---------- */
-  const translations = {
-    ka: {
-      filter: "ფილტრი",
-      apply: "ფილტრის მიღება",
-      clear: "გასუფთავება",
-      cart: "კალათა",
-      checkout: "გადახდა",
-      noProducts: "არ მოიძებნა პროდუქტები მოცემული პირობებით."
-    },
-    en: {
-      filter: "Filter",
-      apply: "Apply Filters",
-      clear: "Clear",
-      cart: "Cart",
-      checkout: "Checkout",
-      noProducts: "No products found for selected filters."
-    }
-  };
+ const translations = {
+  ka: {
+    filter: "ფილტრი",
+    apply: "ფილტრის მიღება",
+    clear: "გასუფთავება",
+    cart: "კალათა",
+    checkout: "გადახდა",
+    noProducts: "არ მოიძებნა პროდუქტები მოცემული პირობებით.",
+    addToCart: "კალათაში დამატება"
+  },
+  en: {
+    filter: "Filter",
+    apply: "Apply Filters",
+    clear: "Clear",
+    cart: "Cart",
+    checkout: "Checkout",
+    noProducts: "No products found for selected filters.",
+    addToCart: "Add to cart"
+  }
+};
+
 
   function currentTranslations(){
     const active = document.querySelector(".lang-btn.active");
@@ -303,6 +306,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // initialize UI with default language (button marked active in HTML)
   function applyLanguage(lang){
+    // translate product buttons
+document.querySelectorAll(".product-add").forEach(btn => {
+  btn.textContent = t.addToCart;
+});
     const t = translations[lang] || translations.ka;
     const headerH3 = document.querySelector(".filter-header h3");
     if(headerH3) headerH3.textContent = t.filter;
